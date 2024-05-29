@@ -12,9 +12,13 @@ def is_alive(request):
 @csrf_exempt
 def timestamp(request):
     if request.method == 'GET':
-        randnum = random(1, 2 ,3)
-        TimestampRecord.objects.create()
-        return JsonResponse({'timestamp': timezone.now()})
-    
-
-
+        try:
+            region = random.randint(1, 3)
+            timestamp_record = TimestampRecord.objects.create(region=region)
+            response_data = {
+                'timestamp': timestamp_record.timestamp,
+                'region': timestamp_record.region
+            }
+            return JsonResponse(response_data)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
