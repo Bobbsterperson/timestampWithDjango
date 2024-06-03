@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+DATABASE_ROUTERS = ['myproject.routers.RegionRouter']
 DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
@@ -81,34 +81,36 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME', 'postgres'),
         'USER': os.environ.get('DB_USER', 'postgres'),
         'PASSWORD': os.environ.get('DB_PASS', 'postgres'),
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-        'PORT': os.environ.get('DB_PORT', '5434'),
-    },
-    'region1': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME_REGION1', 'reg1'),
-        'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASS', 'postgres'),
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-        'PORT': os.environ.get('DB_PORT', '5431'),
-    },
-    'region2': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME_REGION2', 'reg2'),
-        'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASS', 'postgres'),
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-        'PORT': os.environ.get('DB_PORT', '5435'),
-    },
-    'region3': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME_REGION3', 'reg3'),
-        'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASS', 'postgres'),
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-        'PORT': os.environ.get('DB_PORT', '5433'),
+        'HOST': os.environ.get('DB_HOST', 'postgres'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+    # },
+    # 'region1': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': os.environ.get('DB_NAME_REGION1', 'reg1'),
+    #     'USER': os.environ.get('DB_USER_REGION1', 'postgres'),
+    #     'PASSWORD': os.environ.get('DB_PASS_REGION1', 'postgres'),
+    #     'HOST': os.environ.get('DB_HOST_REGION1', '127.0.0.1'),
+    #     'PORT': os.environ.get('DB_PORT_REGION1', '5434'),
+    # },
+    # 'region2': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': os.environ.get('DB_NAME_REGION2', 'reg2'),
+    #     'USER': os.environ.get('DB_USER_REGION2', 'postgres'),
+    #     'PASSWORD': os.environ.get('DB_PASS_REGION2', 'postgres'),
+    #     'HOST': os.environ.get('DB_HOST_REGION2', '127.0.0.1'),
+    #     'PORT': os.environ.get('DB_PORT_REGION2', '5434'),
+    # },
+    # 'region3': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': os.environ.get('DB_NAME_REGION3', 'reg3'),
+    #     'USER': os.environ.get('DB_USER_REGION3', 'postgres'),
+    #     'PASSWORD': os.environ.get('DB_PASS_REGION3', 'postgres'),
+    #     'HOST': os.environ.get('DB_HOST_REGION3', '127.0.0.1'),
+    #     'PORT': os.environ.get('DB_PORT_REGION3', '5434'),
     },
 }
+
+
 
 
 # Password validation
